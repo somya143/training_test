@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <style>
+
+        body{
+            background-color: azure;
+        }
+
+        #main{
+            width: 50%;
+            height: 350px;
+            /* background-color: aqua; */
+            margin: auto;
+            /* border: 1px solid red; */
+        }
+        h1{
+            text-align: center;
+        }
+        #container{
+            width: 50%;
+            height:290px;
+            /* border:1px solid black; */
+            margin: auto;
+        }
+        input{
+            width: 190px;
+            margin-top: 75px;
+            margin-left: 70px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            }
+        li{
+            margin-left: 19px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        .remove_btn{
+            background-color: red;
+            border-radius: 4px;
+            width: 90px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+
+        }
+        #btn{
+            margin-left: 240px;
+            margin-bottom: 3px;
+        }
+        #text_area{
+            margin-top: 20px;
+            margin-left: 58px;
+            width: 50%;
+            height: 20%;
+            border-radius: 5px;
+        }
+        #taskTable{
+            width:150%;
+            margin-top: 15px;
+            border: 1px solid black;
+            border-collapse: collapse;
+            /* display: none; */
+        }
+        th{
+            border:1px solid black;
+            margin-left: 9px;
+        }
+        tr,td{
+            border:1px solid black;
+            text-align: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+
+                <h1>Add your Task</h1>
+
+            <div  id="container" >
+
+                <form action="">
+                    <label for="">Name</label>
+                    <input type="text" id="taskInput" placeholder="Title"> <br>
+                    <div></div>
+                    <label for="" style="margin-bottom: 90px;">Details:</label>
+                    <textarea name="" id="text_area" rows="4" cols="50" placeholder="Describe  here...">
+                    </textarea>
+                </form>
+                <div id="btn">
+
+                    <button onclick="addTask()">Add Task</button>
+                </div>
+                <table id="taskTable" >
+                    <thead>
+                      <tr>
+                        <!-- <th>No</th> -->
+                        <th>Task</th>
+                        <th>Details</th>
+                        <th>Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody id="taskList"></tbody>
+                  </table>
+            </div>
+            
+
+    </div>
+
+
+    <script>
+
+
+        function addTask(){
+            const taskInput = document.getElementById('taskInput');
+            const text_area = document.getElementById('text_area'); 
+            const taskList = document.getElementById('taskList');      
+           const tab= document.getElementById('taskTable');
+
+
+            if (taskInput.value !== '') {
+
+
+                const newRow = document.createElement('tr');
+                const taskTextCell = document.createElement('td');
+                const detail =document.createElement('td');
+                const deleteButtonCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+
+                taskTextCell.textContent = taskInput.value;
+                detail.textContent=text_area.value;
+
+                deleteButton.textContent = 'Delete';
+                deleteButton.className = 'remove_btn';
+
+                newRow.appendChild(taskTextCell);
+                deleteButtonCell.appendChild(deleteButton);
+                newRow.appendChild(detail)
+                newRow.appendChild(deleteButtonCell);
+                taskList.appendChild(newRow);
+
+                taskInput.value = '';
+                text_area.value='';
+
+                deleteButton.addEventListener('click', function () {
+                newRow.remove();
+                });
+            } else {
+                alert('Please enter a task!');
+            }
+}
+
+            
+
+
+        
+
+
+    </script>
+
+    
+</body>
+</html>
