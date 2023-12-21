@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorttable</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #d5aae9 0%, #cf6cc9 33%, #935b73 66%, #ee609c 100%);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            margin: auto;
+            margin-top: 100px;
+            height: 690px;
+            width: 1250px;
+            background-color: white;
+            justify-content: center;
+            border-radius: 5px;
+            /* display: none; */
+        }
+        table{
+            margin: auto;
+            padding-top: 50px;
+        }
+        th{
+            height: 40px;
+            width: 200px;
+            border: 1px solid rgb(122, 28, 101);
+            padding: 8px;
+            text-align: center;
+            font-size: 18px;
+            color: #e34386;
+
+            
+        }
+        td{
+            height: 50px;
+            width: 200px;
+            border: 1px solid rgb(122, 28, 101);
+            padding: 8px;
+            text-align: center;
+            
+        }
+        button{
+            justify-content: center;
+            margin: auto;
+            border: none;
+            height: 30px;
+            width: 70px;
+            background-color: #ee609c;
+            color: white;
+            border-radius: 8px;
+            float: right;
+            margin-right: 220px;
+            
+        }
+        p{
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            padding-top: 30px;
+            color: #ee609c;
+
+        }
+        #a{
+            margin: auto;
+            margin-top: 100px;
+        }
+        th:hover {
+       background: #ee609c;
+       color: white;
+     }
+    </style>
+</head>
+<body>
+    <div id="container">
+       <div id="a">
+        <p><U>Employee Details</U></p>
+       </div>
+        <table id="grid" >
+            <thead>
+                
+                <th>Sl.No</th>
+                <th data-type="string">Employee Name
+                </th>
+                <th data-type="number">Employee ID
+                </th>
+                <th data-type="string">Employee designation
+                </th>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>1</td>
+                    <td>prithivi</td>
+                    <td>007</td>
+                    <td>python deve</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>sandeep</td>
+                    <td>004</td>
+                    <td>manager</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>somya</td>
+                    <td>009</td>
+                    <td>javascript deve</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>atitya</td>
+                    <td>002</td>
+                    <td>java deve</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>gudu</td>
+                    <td>008</td>
+                    <td>python scraper</td>
+                </tr>
+            </tbody>
+            
+        </table><br><br>
+        <button type="reset" onclick="fun()">reset</button>
+    </div>
+</body>
+
+    
+<script>
+     grid.onclick = function(e) {
+      if (e.target.tagName != 'TH') return;
+
+      let th = e.target;
+     
+      sortGrid(th.cellIndex, th.dataset.type);
+    };
+
+    function sortGrid(colNum, type) {
+      let tbody = grid.querySelector('tbody');
+
+      let rowsArray = Array.from(tbody.rows);
+
+      let compare;
+
+      switch (type) {
+        case 'number':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML - rowB.cells[colNum].innerHTML;
+          };
+          break;
+        case 'string':
+          compare = function(rowA, rowB) {
+            return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+          };
+          break;
+      }
+
+      
+      rowsArray.sort(compare);
+
+      tbody.append(...rowsArray);
+    }
+
+    function fun(){
+        location.reload();
+ } 
+</script>
+
+    
+</html>

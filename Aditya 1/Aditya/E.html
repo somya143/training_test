@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Meter</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+        }
+        #reg {
+            text-align: center;
+        }
+        #password-form {
+            text-align: center;
+            border: 10px solid gray;
+            margin: 20px auto;
+            padding: 20px;
+            width: 50%;
+        }
+        #message {
+            text-align: left;
+            margin: 20px auto;
+            padding: 20px;
+            width: 50%;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="reg">
+        <h1>Password Strength Meter</h1>
+    </div>
+
+    <div id="password-form">
+        <form>
+            <label for="password">ENTER THE PASSWORD</label>
+            <input type="password" id="password" placeholder=" Password" required>
+            <br><br>
+            <button type="button" onclick="checkPassword()">Submit</button>
+        </form>
+    </div>
+
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        <p id="capital" class="invalid">At least one <b>capital (uppercase)</b> letter</p>
+        <p id="letter" class="invalid">At least one <b>lowercase</b> letter</p>
+        <p id="number" class="invalid">At least one <b>number</b></p>
+        <p id="special" class="invalid">At least one <b>special character (!@#$%^&*)</b></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var isStrong = password.length >= 8 &&
+                            /[A-Z]/.test(password) &&
+                            /[a-z]/.test(password) &&
+                            /\d/.test(password) &&
+                            /[!@#$%^&*]/.test(password);   
+
+            if (isStrong) {
+                alert("Password is strong!");
+            } else {
+                alert("Password is weak. Please follow the specified criteria.");
+            }
+        }
+    </script>
+</body>
+</html>

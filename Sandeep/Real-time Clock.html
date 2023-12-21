@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Clockt</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body,
+        html {
+            background: linear-gradient(to right, #682d63, #ff4d9e);
+        }
+
+        #main {
+            background-color: black;
+            border-color: 7px solid rgb(236, 244, 244);
+            margin-top: 220px;
+            margin-left: 530px;
+            border-radius: 4px;
+            border: 1px solid black;
+            width: 480px;
+            height: 200px;
+            box-shadow: 4px 4px 10px black;
+        }
+
+        h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: whitesmoke;
+            padding-left: 150px;
+        }
+
+        #heading {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            padding-top: 40px;
+        }
+
+        span {
+
+            color: whitesmoke;
+            padding-left: 60px;
+        }
+
+        h3 {
+            text-shadow: 1px 1px 1px;
+            color: whitesmoke;
+            padding-left: 45px;
+        }
+
+        #time {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            padding-top: 15px;
+            display: flex;
+        }
+
+        #txt {
+            padding-left: 63px;
+        }
+
+        #txt1 {
+            padding-left: 73px;
+        }
+
+        #txt2 {
+            padding-left: 95px;
+        }
+
+        #txt3 {
+            padding-left: 95px;
+        }
+    </style>
+</head>
+
+<body onload="startTime()">
+    <div id="main">
+        <h1>Digital Clock</h1>
+        <div id='heading'>
+            <span>Day</span>
+            <span>Hours</span>
+            <span>Minutes</span>
+            <span>Seconds</span>
+        </div>
+        <div id="time">
+
+            <h3 id="txt"></h3>
+
+            <h3 id="txt1"></h3>
+
+            <h3 id="txt2"></h3>
+
+            <h3 id="txt3"></h3>
+
+        </div>
+    </div>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let date = today.getDate();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            console.log(m)
+            let s = today.getSeconds();
+            console.log(s)
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = date;
+            document.getElementById('txt1').innerHTML = h;
+            document.getElementById('txt2').innerHTML = m;
+            document.getElementById('txt3').innerHTML = s;
+            setTimeout(startTime, 1000);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+</body>
+
+</html>

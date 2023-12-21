@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            background-image: url('https://images.unsplash.com/photo-1609072376030-3251761ace39?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #navbar{
+            width: 100%;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-around;
+        }
+        #landing{
+            margin-top: 10px;
+            width: 25%;
+            color: #fff;
+            text-shadow: 2px 2px #802201;
+            font-weight: 600;
+            font-size: 30px;
+            padding-top: 8px;
+            margin-left: -80px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #nav_main{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 60%;
+            margin-top: 20px;
+            color: white;
+            margin-right: -290px;
+        }
+        .nav_btn{
+            width: 100px;
+            height: 40px;
+            border: 1px solid white;
+            color: white;
+            background-color: #802201;
+            background-image: linear-gradient(326deg, #802201 0%, #210d10 74%);
+        }
+        .nav_btn:first-child{
+            margin-left: 50px;
+        }
+        #loginBtn{
+            width: 100px;
+            height: 40px;
+            background-color: #802201;
+            background-image: linear-gradient(326deg, #802201 0%, #210d10 74%);
+            border: 1px solid white;
+            color: #fff;
+        }
+        #loginBtn>a{
+            text-decoration: none;
+            color: #fff;
+        }
+        #main{
+            width: 100%;
+            position: relative;
+            margin: auto;
+            height: 300px;
+            margin-top: 30px;
+        }
+        .mySlides{
+            position: relative;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 95%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+          }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .numbertext {
+            color: #111;
+            font-size: 19px;
+            padding: 8px;
+            padding-right: 100px;
+            position: absolute;
+            top: 100;
+            right: 0;
+          }
+          .dot {
+            cursor: pointer;
+            height: 11px;
+            width: 15px;
+            margin-top: 300px;
+            background-color: #802201;
+            border-radius: 50%;
+            display: inline-block;         
+          }
+          .active, .dot:hover {
+            background-color: #717171;
+          }
+         
+          @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px}
+          }
+          .imgs{
+            width: 92%;
+            height: 550px;
+            margin-left: 60px;
+          }
+          
+
+    </style>
+</head>
+<body>
+    
+        <nav id="navbar">
+            <h2 id="landing">Doggo World</h2>
+            <div id="nav_main">
+                <button class="nav_btn">Home</button>
+                <button class="nav_btn">Videos</button>
+                <button class="nav_btn">Blog</button>
+                <button class="nav_btn">Portfolio</button>
+                <button class="nav_btn">About Us</button>
+                <button id="loginBtn"><a href="./index.html">Login</a></button>
+            </div>
+        </nav>
+
+    <div id="main">
+        <div class="mySlides">
+            <div class="numbertext">1 / 5</div>
+            <img class="imgs" src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fHw%3D" alt="doggy1">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 5</div>
+            <img class="imgs" src="data:image/jpeg;base64,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" alt="doggy2">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">3 / 5</div>
+            <img class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4efDVv2xv-ZxYS-Vin7XXYc7mRd9ZH63O6RZrLyJFGryVWbGuuCLXRv9OaqZ44FuueY&usqp=CAU" alt="doggy3">
+          </div>
+        
+          <div class="mySlides">
+            <div class="numbertext">4 / 5</div>
+            <img class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-0qP1-_adIF_wZ4K-2YAcHYv1e2m3aQhtQ&usqp=CAU" alt="doggy3">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">5 / 5</div>
+            <img class="imgs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQztiBoxaT111Se8PjDNnYzmq5v5C0MYaPmUA&usqp=CAU" alt="doggy3">
+          </div>
+
+          <a class="prev" onclick="nextAndPrevious(-1)">❮</a>
+          <a class="next" onclick="nextAndPrevious(1)">❯</a>
+
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span> 
+        <span class="dot" onclick="currentSlide(5)"></span>  
+      </div>
+
+    
+
+      <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function nextAndPrevious(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {
+            slideIndex = 1
+        }    
+          if (n < 1) {
+            slideIndex = slides.length
+        }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+</body>
+</html>
