@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+   <link rel="stylesheet" href="./styles//product.css">
+</head>
+
+<body>
+    <h1>PRODUCT PAGE</h1>
+
+    <div id="formbody">
+        <h3>ADD THE PRODUCT DEATILS:</h3>
+        <form id="productForm">
+            <label for="serialNo">SL No:</label>
+            <input type="text" id="serialNo" name="serialNo" required>
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required>
+            <label for="productImage">Product Image URL:</label>
+            <input type="text" id="productImage" name="productImage">
+            <label for="productDec">Product Decription:</label>
+            <input type="text" id="productDec" name="productDec">
+            <button type="button" onclick="addProduct()">Add Product</button> <br> <br>
+        </form>
+    </div>
+
+    <div id="tablebody">
+        <table>
+            <thead>
+                <tr>
+                    <th>SL NO.</th>
+                    <th>PRODUCT NAME</th>
+                    <th>IMAGE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Product Details</h2>
+            <div id="modalContent"></div>
+            <!-- <button id="cart">add to cart</button> -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+   <!-- <link rel="stylesheet" href="script.js"> -->
+</body>
+
+<script src="./product.js"></script>
+
+</html>

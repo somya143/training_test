@@ -1,0 +1,60 @@
+.liCard{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 10px 0px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+#img{
+    height: 50px;
+    width: 50px;
+}
+#main{
+    margin: auto;
+    margin-left: 8.5%;
+    display: flex;
+    width: auto;
+}
+.d{
+ 
+    height: 500px;
+    width: auto;
+ 
+}
+a{
+    text-align: center;
+    text-decoration: none;
+}
+ 
+ 
+/* a:hover{
+    background-color: green;
+    color: aliceblue;
+} */
+#h{
+    color: green;
+    text-align: center;
+}
+h2,h3,h4,h5{
+  color: green;  
+}
+ 
+ul{
+    list-style: none;
+ 
+}
+li{
+    background-color: white;
+    padding-left: 13px;
+}
+ 
+#p{
+    padding-left: 8px;
+ 
+}
+#im1{
+    height: 85% ;
+    width: auto;
+}

@@ -1,0 +1,52 @@
+
+#img{
+    height: 50px;
+    width: 50px;
+}
+#main{
+    margin: auto;
+    margin-left: 8.5%;
+    display: flex;
+    width: auto;
+}
+.d{
+ 
+    height: 500px;
+    width: auto;
+ 
+}
+a{
+    text-align: center;
+    text-decoration: none;
+}
+ 
+ 
+/* a:hover{
+    background-color: green;
+    color: aliceblue;
+} */
+#h{
+    color: green;
+    text-align: center;
+}
+h2,h3,h4,h5{
+  color: green;  
+}
+ 
+ul{
+    list-style: none;
+ 
+}
+li{
+    background-color: white;
+    padding-left: 13px;
+}
+ 
+#p{
+    padding-left: 8px;
+ 
+}
+#im1{
+    height: 85% ;
+    width: auto;
+}
